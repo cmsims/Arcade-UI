@@ -1,0 +1,7 @@
+package UI.Controllers;
+
+/**
+ * Created by Various on 3/21/2016.
+ */
+public class KioskModeViewController {
+}
