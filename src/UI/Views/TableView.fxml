@@ -10,7 +10,7 @@
 
 
 <?import UI.FormattedTableCellFactory?>
-<?import UI.Person?>
+<?import UI.GameFactory?>
 <GridPane alignment="CENTER" hgap="10.0" vgap="10.0" fx:controller="UI.Controllers.TableViewController"
           xmlns:fx="http://javafx.com/fxml">
     <padding>
@@ -19,42 +19,36 @@
     <Label style="-fx-font: NORMAL 20 Tahoma;" text="Browse Games" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
     <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <columns>
-            <TableColumn prefWidth="100.0" text="Title" fx:id="firstNameColumn">
+            <TableColumn prefWidth="100.0" text="Title" fx:id="titleColumn">
                 <cellFactory>
                     <FormattedTableCellFactory alignment="CENTER"/>
                 </cellFactory>
                 <cellValueFactory>
-                    <PropertyValueFactory property="firstName"/>
+                    <PropertyValueFactory property="title"/>
                 </cellValueFactory>
             </TableColumn>
             <TableColumn prefWidth="100.0" text="Developer">
                 <cellValueFactory>
-                    <PropertyValueFactory property="lastName"/>
+                    <PropertyValueFactory property="developer"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="200.0" text="Description">
+            <TableColumn prefWidth="200.0" text="Short Description">
                 <cellValueFactory>
-                    <PropertyValueFactory property="email"/>
+                    <PropertyValueFactory property="shortDescription"/>
                 </cellValueFactory>
             </TableColumn>
         </columns>
         <items>
             <FXCollections fx:factory="observableArrayList">
-                <Person email="Awesome RPG" firstName="Final Fantasy 7" lastName="Sony"/>
-                <Person email="Awesome Firt Person Shooter" firstName="Counter Strike" lastName="Valve"/>
-                <Person email="Full of trolls" firstName="League of Legends" lastName="Riot Games"/>
-                <Person email="Super buggy alpha game" firstName="H1Z1" lastName="Daybreak Games"/>
-                <Person email="Best game ever" firstName="World of Warcraft" lastName="Blizzard"/>
+                <GameFactory title="Awesome RPG" developer="Final Fantasy 7" shortDescription="Sony"/>
+                <GameFactory title="Awesome Firt Person Shooter" developer="Counter Strike" shortDescription="Valve"/>
+                <GameFactory title="Full of trolls" developer="League of Legends" shortDescription="Riot Games"/>
+                <GameFactory title="Super buggy alpha game" developer="H1Z1" shortDescription="Daybreak Games"/>
+                <GameFactory title="Best game ever" developer="World of Warcraft" shortDescription="Blizzard"/>
             </FXCollections>
         </items>
         <sortOrder>
-            <fx:reference source="firstNameColumn"/>
+            <fx:reference source="titleColumn"/>
         </sortOrder>
     </TableView>
-    <!--<HBox alignment="BOTTOM_RIGHT" spacing="10.0" GridPane.columnIndex="0" GridPane.rowIndex="2">-->
-    <!--<TextField fx:id="firstNameField" prefWidth="90.0" promptText="First Name" />-->
-    <!--<TextField fx:id="lastNameField" prefWidth="90.0" promptText="Last Name" />-->
-    <!--<TextField fx:id="emailField" prefWidth="150.0" promptText="Email" />-->
-    <!--<Button onAction="#addPerson" text="Add" />-->
-    <!--</HBox>-->
 </GridPane>
